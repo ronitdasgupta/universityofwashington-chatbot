@@ -1,13 +1,18 @@
 import openai
+import os
 import csv
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 app = Flask(__name__)
 CORS(app)
 
 # Set up OpenAI API
-openai.api_key = "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"
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
 class DataSet:
